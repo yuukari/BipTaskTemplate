@@ -56,7 +56,6 @@ void show_screen (void *param0){
 	}
 
 	draw_switch_screen();
-
 	set_update_period(1, 200);
 }
 
@@ -116,6 +115,20 @@ int dispatch_screen (void *param){
 				draw_switch_screen();
 				repaint_screen_lines(0, 176);
 			} else if (app_data->current_screen == SCREEN_BUTTONS){
+				if (
+					(gest->touch_pos_x > 16) && (gest->touch_pos_x < 160) &&
+					(gest->touch_pos_y > 16) && (gest->touch_pos_y < 76)
+				){
+					send_host_app_msg(0xF4);
+				}
+
+				if (
+					(gest->touch_pos_x > 16) && (gest->touch_pos_x < 160) &&
+					(gest->touch_pos_y > 100) && (gest->touch_pos_y < 160)
+				){
+					send_host_app_msg(0xF5);
+				}
+				
 				draw_buttons_screen();
 				repaint_screen_lines(0, 176);
 			}
@@ -188,5 +201,13 @@ void draw_buttons_screen(){
 	fill_screen_bg();
 	set_fg_color(COLOR_WHITE);
 
-	draw_rect(16, 16, 160, 56);
+	draw_rect(16, 16, 160, 76);
+	draw_vertical_line(156, 20, 72);
+	draw_horizontal_line(72, 20, 156);
+	text_out_center("Button 1", 88, 36);
+
+	draw_rect(16, 100, 160, 160);
+	draw_vertical_line(156, 104, 156);
+	draw_horizontal_line(156, 20, 156);
+	text_out_center("Button 2", 88, 120);
 }
