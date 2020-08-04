@@ -1,21 +1,30 @@
-#ifndef __APP_TEMPLATE_H__
+/***************************************************/
+/*                                                 */
+/*     BipTask data transfer library for BipOS     */
+/*               Developed by Yuukari              */
+/*                                                 */
+/*               Library version: 1.0              */
+/*       Сompatible with BipTask app v1.1.0        */
+/*                                                 */
+/*    https://github.com/Yuukari/BipTaskLibrary    */
+/*                                                 */
+/***************************************************/
 
-#define __APP_TEMPLATE_H__
+/*
+    biptask_send_byte - Отправляет один байт данных
 
-struct app_data_ {
-	void* ret_f;
+    @param char* app_id - массив char размером в три элемента, содержащий уникальный
+    идентификатор приложения
+    @param char byte - отправляемое значение
+*/
+void biptask_send_byte(char* app_id, char byte);
 
-	unsigned int current_screen;
+/*
+    biptask_send_byte - Отправляет массив байт данных
 
-	unsigned int switch_1;
-	unsigned int switch_2;
-};
-
-void 	show_screen (void *return_screen);
-void 	key_press_screen();
-int 	dispatch_screen (void *param);
-void 	screen_job();
-void	draw_switch_screen();
-void	draw_buttons_screen();
-
-#endif
+    @param char* app_id - массив char размером в три элемента, содержащий уникальный
+    идентификатор приложения
+    @param char* bytes - массив с данными
+    @param unsigned int length - размер массива bytes
+*/
+void biptask_send_bytes(char* app_id, char* bytes, unsigned int length);

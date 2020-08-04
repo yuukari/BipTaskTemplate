@@ -1,0 +1,5 @@
+BipTaskTemplate.elf
+BipTaskTemplate.map
+app.o
+biptask.o
+foo

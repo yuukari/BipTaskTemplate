@@ -1,0 +1,156 @@
+<TaskerData sr="" dvi="1" tv="5.9.2">
+	<Task sr="task6">
+		<cdate>1595823267177</cdate>
+		<edate>1596556055856</edate>
+		<id>6</id>
+		<nme>BipTask full template</nme>
+		<pri>6</pri>
+		<Action sr="act0" ve="7">
+			<code>37</code>
+			<label>Обработка отправки одного байта через функцию biptask_send_byte</label>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%message_type</lhs>
+					<op>0</op>
+					<rhs>BIPTASK_MESSAGE_BASIC</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>37</code>
+			<label>Если принятый байт равен 17 (0x11)</label>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%message_data</lhs>
+					<op>0</op>
+					<rhs>17</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act10" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">Button 1 - Кнопка нажата</Str>
+			<Int sr="arg1" val="0"/>
+		</Action>
+		<Action sr="act11" ve="7">
+			<code>43</code>
+			<label>Если принятый байт равен 33 (0x21)</label>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%message_data</lhs>
+					<op>0</op>
+					<rhs>33</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act12" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">Button 2 - Кнопка нажата</Str>
+			<Int sr="arg1" val="0"/>
+		</Action>
+		<Action sr="act13" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act14" ve="7">
+			<code>43</code>
+			<label>Обработка отправки массива байт через функцию biptask_send_bytes</label>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%message_type</lhs>
+					<op>2</op>
+					<rhs>BIPTASK_MESSAGE_BYTES</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act15" ve="7">
+			<code>548</code>
+			<label>Выводим принятый массив данных</label>
+			<Str sr="arg0" ve="3">Передан массив байт [%message_data(1), %message_data(2), %message_data(3)]</Str>
+			<Int sr="arg1" val="0"/>
+		</Action>
+		<Action sr="act16" ve="7">
+			<code>43</code>
+			<label>Обработка нажатия на кнопку назад</label>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%message_type</lhs>
+					<op>2</op>
+					<rhs>BIPTASK_MESSAGE_BUTTON</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act17" ve="7">
+			<code>548</code>
+			<label>Выводим количество нажатий на кнопку</label>
+			<Str sr="arg0" ve="3">Кнопка назад нажата %button_count раз</Str>
+			<Int sr="arg1" val="0"/>
+		</Action>
+		<Action sr="act18" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">Switch 1 - Переключатель включен</Str>
+			<Int sr="arg1" val="0"/>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>43</code>
+			<label>Если принятый байт равен 16 (0x10)</label>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%message_data</lhs>
+					<op>0</op>
+					<rhs>16</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">Switch 1 - Переключатель выключен</Str>
+			<Int sr="arg1" val="0"/>
+		</Action>
+		<Action sr="act5" ve="7">
+			<code>43</code>
+			<label>Если принятый байт равен 19 (0x13)</label>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%message_data</lhs>
+					<op>0</op>
+					<rhs>19</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act6" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">Switch 2 - Переключатель выключен</Str>
+			<Int sr="arg1" val="0"/>
+		</Action>
+		<Action sr="act7" ve="7">
+			<code>43</code>
+			<label>Если принятый байт равен 18 (0x12)</label>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%message_data</lhs>
+					<op>0</op>
+					<rhs>18</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act8" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">Switch 2 - Переключатель выключен</Str>
+			<Int sr="arg1" val="0"/>
+		</Action>
+		<Action sr="act9" ve="7">
+			<code>43</code>
+			<label>Если принятый байт равен 32 (0x20)</label>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%message_data</lhs>
+					<op>0</op>
+					<rhs>32</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+	</Task>
+</TaskerData>
